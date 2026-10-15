@@ -1,6 +1,6 @@
 # Development Standard
 
-Version: 1.0  
+Version: 1.1  
 Established: 2026-09-21
 
 ## 1. 基本原則
@@ -154,8 +154,11 @@ Acceptance: A1 PASS
 - ユーザーの未commit作業を破壊しない
 - dirty / untrackedファイルを勝手に消さない
 - 無関係な変更を同一commitへ混ぜない
-- force pushを行わない
-- PR / merge / release / production反映など、承認が必要な操作を勝手に実行しない
+- force push / force-with-lease / rebase / history rewriteを行わない
+- 承認済み仕様・作業範囲では通常のcommit / push / PR作成をGPT判断で実施してよい
+- 開発branchへのmerge、および安定版branchへのmergeも、対象Requirementと必要なAcceptanceがすべて成立し、未承認の仕様差分がなく、既存動作・WIP・安定成果物を保護できる場合は、GPT判断で実施してよい
+- Acceptanceの未実施・失敗・判断不能、仕様変更、競合・予期しない差分があればmergeを保留してユーザーに確認する。自動テストPASSだけで実機AcceptanceをPASS扱いしない
+- release / production反映は毎回ユーザーの個別承認を必要とする。安定版branchへのmergeはreleaseやproduction反映を意味しない
 - secrets / credentialsを表示・commitしない
 
 ## 12. コンテキスト効率
