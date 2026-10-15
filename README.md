@@ -34,11 +34,15 @@ AI（ChatGPT / Codex / その他の実装Agent）を使った開発で、途中�
 >
 > リファクタ、安全性向上、基盤変更、依存ライブラリ変更、技術的都合は「仕様変更を提案する理由」にはなりますが、「仕様変更の承認」にはなりません。
 
+## Git操作の自律運用（v1.1）
+
+承認済みの開発範囲では、commit / push / PR作成に加え、**必要なAcceptanceが成立した開発branch・安定版branchへのmergeもGPT判断で実行可能**です。未承認仕様差分や未確認Acceptanceがある場合はmergeしません。**release / production反映は都度ユーザー承認**が必要です。force push、force-with-lease、rebase、history rewriteは禁止です。詳細は `DEVELOPMENT_STANDARD.md` 第11項を参照してください。
+
 ## テンプレート
 
 - `templates/PRODUCT_CONTRACT.md`
 - `templates/ACCEPTANCE.md`
 - `templates/DECISIONS.md`
 
-Version: 1.0  
+Version: 1.1  
 Established: 2026-09-21
